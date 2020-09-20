@@ -22,4 +22,11 @@ class AssociativeRowCondition extends BaseObject
      * @var null
      */
     public $oldValue;
+
+    /**
+     * Order of the associative row.
+     *
+     * @var bool
+     */
+    public $order;
 }

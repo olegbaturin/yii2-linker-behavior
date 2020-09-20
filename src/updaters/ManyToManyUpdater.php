@@ -64,7 +64,7 @@ class ManyToManyUpdater extends BaseManyToManyUpdater
                 $viaTableAttributes = $this->getViaTableAttributesValue();
                 $viaTableColumnNames = array_keys($viaTableAttributes);
 
-                foreach ($bindingKeys as $relatedPkValue) {
+                foreach ($bindingKeys as $order => $relatedPkValue) {
                     $row = [$primaryModelPkValue, $relatedPkValue];
 
                     // Calculate additional viaTable values
@@ -72,7 +72,7 @@ class ManyToManyUpdater extends BaseManyToManyUpdater
                         $row[] = $this->getViaTableAttributeValue(
                             $viaTableColumnName,
                             $relatedPkValue,
-                            new $this->rowConditionClass()
+                            new $this->rowConditionClass(['order' => $order])
                         );
                     }
 
